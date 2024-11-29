@@ -94,17 +94,30 @@ def main():
         unkown_value11 = location_info[i+1].strip()
       if location_info[i] == "valeur_inconnue12:":
         unkown_value12 = location_info[i+1].strip()
-    
-    networks[bssid] = {
-      "latitude": latitude,
-      "longitude": longitude,
-      "unkown_value3": unkown_value3,
-      "unkown_value4": unkown_value4,
-      "unkown_value5": unkown_value5,
-      "unkown_value6": unkown_value6,
-      "unkown_value11": unkown_value11,
-      "unkown_value12": unkown_value12,
-    }
+
+    # If network was not found
+    if latitude == "-1.8000000000" and longitude == "-1.8000000000":
+      networks[bssid] = {
+        "latitude": "unkown",
+        "longitude": "unkown",
+        "unkown_value3": unkown_value3,
+        "unkown_value4": -1,
+        "unkown_value5": unkown_value5,
+        "unkown_value6": -1,
+        "unkown_value11": -1,
+        "unkown_value12": -1,
+      }
+    else:
+      networks[bssid] = {
+        "latitude": latitude,
+        "longitude": longitude,
+        "unkown_value3": unkown_value3,
+        "unkown_value4": unkown_value4,
+        "unkown_value5": unkown_value5,
+        "unkown_value6": unkown_value6,
+        "unkown_value11": unkown_value11,
+        "unkown_value12": unkown_value12,
+      }
 
   if os.path.exists(tmp_file):
     os.remove(tmp_file)
