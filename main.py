@@ -83,40 +83,40 @@ def main():
       if location_info[i] == "longitude:":
         longitude = location_info[i+1].strip()[:2] + "." + location_info[i+1].strip()[2:]
       if location_info[i] == "valeur_inconnue3:":
-        unkown_value3 = location_info[i+1].strip()
+        unknown_value3 = location_info[i+1].strip()
       if location_info[i] == "valeur_inconnue4:":
-        unkown_value4 = location_info[i+1].strip()
+        unknown_value4 = location_info[i+1].strip()
       if location_info[i] == "valeur_inconnue5:":
-        unkown_value5 = location_info[i+1].strip()
+        unknown_value5 = location_info[i+1].strip()
       if location_info[i] == "valeur_inconnue6:":
-        unkown_value6 = location_info[i+1].strip()
+        unknown_value6 = location_info[i+1].strip()
       if location_info[i] == "valeur_inconnue11:":
-        unkown_value11 = location_info[i+1].strip()
+        unknown_value11 = location_info[i+1].strip()
       if location_info[i] == "valeur_inconnue12:":
-        unkown_value12 = location_info[i+1].strip()
+        unknown_value12 = location_info[i+1].strip()
 
     # If network was not found
     if latitude == "-1.8000000000" and longitude == "-1.8000000000":
       networks[bssid] = {
-        "latitude": "unkown",
-        "longitude": "unkown",
-        "unkown_value3": unkown_value3,
-        "unkown_value4": -1,
-        "unkown_value5": unkown_value5,
-        "unkown_value6": -1,
-        "unkown_value11": -1,
-        "unkown_value12": -1,
+        "latitude": "unknown",
+        "longitude": "unknown",
+        "unknown_value3": unknown_value3,
+        "unknown_value4": -1,
+        "unknown_value5": unknown_value5,
+        "unknown_value6": -1,
+        "unknown_value11": -1,
+        "unknown_value12": -1,
       }
     else:
       networks[bssid] = {
         "latitude": latitude,
         "longitude": longitude,
-        "unkown_value3": unkown_value3,
-        "unkown_value4": unkown_value4,
-        "unkown_value5": unkown_value5,
-        "unkown_value6": unkown_value6,
-        "unkown_value11": unkown_value11,
-        "unkown_value12": unkown_value12,
+        "unknown_value3": unknown_value3,
+        "unknown_value4": unknown_value4,
+        "unknown_value5": unknown_value5,
+        "unknown_value6": unknown_value6,
+        "unknown_value11": unknown_value11,
+        "unknown_value12": unknown_value12,
       }
 
   if os.path.exists(tmp_file):
