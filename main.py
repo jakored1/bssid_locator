@@ -74,7 +74,19 @@ def main():
   for network_info in out:
     if len(network_info) < 1:
       continue
-    bssid = network_info.split(" ")[3].replace('"', "").strip().lower()
+      
+    orig_bssid = network_info.split(" ")[3].replace('"', "").strip().lower()
+    # Fixing bssid 
+    # for some reason octets that start with 0 are returned without the first 0
+    # For example, 08:7d:2c:55:66:77 is returned as 8:7d:2c:55:66:77
+    # Another example, cc:dd:0e:ff:11:22 is returned as cc:dd:e:ff:11:22
+    bssid = ""
+    for octet in orig_bssid.split(":"):
+      if len(octet) == 1:  # Means we are missing a 0 at the start
+        bssid += f"0{octet}:"
+        continue
+      bssid += f"{octet}:"
+    bssid = bssid[:-1]
     
     location_info = network_info.split("location ")[1].split(" ")
     for i in range(len(location_info)):
