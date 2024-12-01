@@ -74,7 +74,7 @@ def main():
   for network_info in out:
     if len(network_info) < 1:
       continue
-    bssid = network_info.split(" ")[3].replace('"', "").strip()
+    bssid = network_info.split(" ")[3].replace('"', "").strip().lower()
     
     location_info = network_info.split("location ")[1].split(" ")
     for i in range(len(location_info)):
