@@ -22,7 +22,7 @@ import re
 def help():
   print("This script fetches the location of a given BSSID, and networks that are nearby the given BSSID, via Apples geo-location services")
   print("")
-  print("usage: python3 ./client.py AA:BB:CC:DD:EE:FF")
+  print(f"usage: python3 {sys.argv[0]} AA:BB:CC:DD:EE:FF")
 
 
 def main():
