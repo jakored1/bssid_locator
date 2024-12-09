@@ -91,9 +91,9 @@ def main():
     location_info = network_info.split("location ")[1].split(" ")
     for i in range(len(location_info)):
       if location_info[i] == "latitude:":
-        latitude = int(location_info[i+1].strip()) #int(location_info[i+1].strip()) / (10 * 1e7)
+        latitude = int(location_info[i+1].strip()) * pow(10, -8)
       if location_info[i] == "longitude:":
-        longitude = int(location_info[i+1].strip()) #int(location_info[i+1].strip()) / (10 * 1e7)
+        longitude = int(location_info[i+1].strip()) * pow(10, -8)
       if location_info[i] == "valeur_inconnue3:":
         unknown_value3 = location_info[i+1].strip()
       if location_info[i] == "valeur_inconnue4:":
@@ -108,7 +108,7 @@ def main():
         unknown_value12 = location_info[i+1].strip()
 
     # If network was not found
-    if latitude == "-1.8000000000" and longitude == "-1.8000000000":
+    if latitude == -180.0 and longitude == -180.0:
       networks[bssid] = {
         "latitude": "unknown",
         "longitude": "unknown",
