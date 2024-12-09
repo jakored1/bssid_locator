@@ -91,9 +91,9 @@ def main():
     location_info = network_info.split("location ")[1].split(" ")
     for i in range(len(location_info)):
       if location_info[i] == "latitude:":
-        latitude = location_info[i+1].strip()[:2] + "." + location_info[i+1].strip()[2:]
+        latitude = int(location_info[i+1].strip()) #int(location_info[i+1].strip()) / (10 * 1e7)
       if location_info[i] == "longitude:":
-        longitude = location_info[i+1].strip()[:2] + "." + location_info[i+1].strip()[2:]
+        longitude = int(location_info[i+1].strip()) #int(location_info[i+1].strip()) / (10 * 1e7)
       if location_info[i] == "valeur_inconnue3:":
         unknown_value3 = location_info[i+1].strip()
       if location_info[i] == "valeur_inconnue4:":
